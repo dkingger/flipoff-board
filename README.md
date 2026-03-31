@@ -124,22 +124,7 @@ Admin: `http://SERVER-IP/admin.html`
 
 </details>
 
-## Opdatering efter ændringer
 
-Hvis du ændrer filer lokalt og vil gemme dem i GitHub:
-
-```bash
-git add .
-git commit -m "Beskriv ændringen"
-git push
-```
-
-Hvis du vil hente ændringer ned på serveren igen:
-
-```bash
-cd /var/www/flipoff
-git pull
-```
 
 ## Bemærkning
 
