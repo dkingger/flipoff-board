@@ -117,3 +117,8 @@
   border-radius: 2px;
   background: rgba(255, 255, 255, 0.15);
 }
+
+.keyboard-hint,
+.shortcuts-overlay {
+  display: none !important;
+}

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FlipOff Admin</title>
+  <style>
+    :root {
+      color-scheme: dark;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Arial, sans-serif;
+      background: #0a0a0a;
+      color: #f2f2f2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .panel {
+      width: min(720px, 100%);
+      background: #111;
+      border: 1px solid #222;
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: 28px;
+    }
+
+    p {
+      margin: 0 0 20px;
+      color: #aaa;
+      line-height: 1.5;
+    }
+
+    .grid {
+      display: grid;
+      gap: 14px;
+    }
+
+    label {
+      display: grid;
+      gap: 6px;
+      font-size: 14px;
+      color: #ccc;
+    }
+
+    textarea {
+      width: 100%;
+      min-height: 68px;
+      resize: vertical;
+      border-radius: 10px;
+      border: 1px solid #333;
+      background: #181818;
+      color: #fff;
+      padding: 12px;
+      font: inherit;
+    }
+
+    textarea:focus {
+      outline: none;
+      border-color: #666;
+    }
+
+    textarea::placeholder {
+      color: #7a7a7a;
+      opacity: 1;
+    }
+
+    .actions {
+      display: flex;
+      gap: 12px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+
+    button,
+    .back-link {
+      border: 1px solid #333;
+      background: #1d1d1d;
+      color: #fff;
+      padding: 10px 16px;
+      border-radius: 10px;
+      text-decoration: none;
+      cursor: pointer;
+      font: inherit;
+    }
+
+    button:hover,
+    .back-link:hover {
+      background: #262626;
+    }
+
+    .status {
+      margin-top: 14px;
+      min-height: 20px;
+      color: #8fd19e;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="panel">
+    <h1>FlipOff Admin</h1>
+    <p>Hver boks er én besked. Anbefalet: maks 20 tegn pr. linje og maks 5 linjer pr. besked.</p>
+
+    <div class="grid">
+      <label>
+        Besked 1
+        <textarea id="msg1" maxlength="120" placeholder="Maks 20 tegn pr. linje&#10;Maks 5 linjer pr. besked"></textarea>
+      </label>
+
+      <label>
+        Besked 2
+        <textarea id="msg2" maxlength="120" placeholder="Maks 20 tegn pr. linje&#10;Maks 5 linjer pr. besked"></textarea>
+      </label>
+
+      <label>
+        Besked 3
+        <textarea id="msg3" maxlength="120" placeholder="Maks 20 tegn pr. linje&#10;Maks 5 linjer pr. besked"></textarea>
+      </label>
+
+      <label>
+        Besked 4
+        <textarea id="msg4" maxlength="120" placeholder="Maks 20 tegn pr. linje&#10;Maks 5 linjer pr. besked"></textarea>
+      </label>
+
+      <label>
+        Besked 5
+        <textarea id="msg5" maxlength="120" placeholder="Maks 20 tegn pr. linje&#10;Maks 5 linjer pr. besked"></textarea>
+      </label>
+    </div>
+
+    <div class="actions">
+      <button id="saveBtn" type="button">Gem</button>
+      <a class="back-link" href="/">Tilbage til tavlen</a>
+    </div>
+
+    <div class="status" id="status"></div>
+  </div>
+
+  <script type="module" src="js/admin.js"></script>
+</body>
+</html>
