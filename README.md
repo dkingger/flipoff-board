@@ -67,7 +67,8 @@ Eksempel:
 * maks 5 linjer pr. besked
 * 5 beskeder i alt
 
-## Installation på Debian med nginx
+<details>
+<summary><strong>Installation på Debian med nginx</strong></summary>
 
 ### 1. Klon repoet
 
@@ -80,7 +81,8 @@ cd /var/www/flipoff
 
 ```bash
 mkdir -p /var/www/flipoff/data
-printf '["","","","",""]\n' > /var/www/flipoff/data/messages.json
+printf '["","","","",""]
+' > /var/www/flipoff/data/messages.json
 ```
 
 ### 3. Installer nginx
@@ -119,6 +121,8 @@ systemctl reload nginx
 
 Forside: `http://SERVER-IP/`
 Admin: `http://SERVER-IP/admin.html`
+
+</details>
 
 ## Opdatering efter ændringer
 
