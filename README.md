@@ -1,86 +1,48 @@
-# FlipOff.
+# flipoff-board
 
-**Turn any TV into a retro split-flap display.** The classic flip-board look, without the $3,500 hardware. And it's free.
+Tilpasset version af [magnum6actual/flipoff](https://github.com/magnum6actual/flipoff) til infoskærm-brug med admin-side og server-side lagring.
 
-![FlipOff Screenshot](screenshot.png)
+## Baseret på originalen
 
-## What is this?
+Originalt projekt:
+- https://github.com/magnum6actual/flipoff
 
-FlipOff is a free, open-source web app that emulates a classic mechanical split-flap (flip-board) airport terminal display — the kind you'd see at train stations and airports. It runs full-screen in any browser, turning a TV or large monitor into a beautiful retro display.
+Denne version er en praktisk tilpasning af originalen til brug på egen server.
 
-No accounts. No subscriptions. No $199 fee. Just open `index.html` and go.
+## Ændringer i denne version
 
-## Features
+- ren forside med kun flipboard
+- sort baggrund
+- diskret admin-knap nederst til højre
+- admin-side med 5 tekstbokse
+- `|` bruges som tvunget linjeskift
+- maks 20 tegn pr. linje
+- dansk fallback-tekst
+- beskeder gemmes på serveren i JSON-fil
+- auto-opdatering uden manuel refresh
+- farver under flip er fjernet
+- keyboard-hint er fjernet
 
-- Realistic split-flap animation with colorful scramble transitions
-- Authentic mechanical clacking sound (recorded from a real split-flap display)
-- Auto-rotating inspirational quotes
-- Fullscreen TV mode (press `F`)
-- Keyboard controls for manual navigation
-- Works offline — zero external dependencies
-- Responsive from mobile to 4K displays
-- Pure vanilla HTML/CSS/JS — no frameworks, no build tools, no npm
+## Struktur
 
-## Quick Start
+- `index.html` – tavlen
+- `admin.html` – admin-side
+- `css/` – styling
+- `js/` – klientlogik
+- `data/messages.json` – gemte beskeder
+- `server/flipoff_api.py` – lille API til at læse/skrive beskeder
+- `server/flipoff-api.service` – systemd service-fil
+- `server/nginx-flipoff.conf` – nginx-konfiguration
 
-1. Clone the repo
-2. Open `index.html` in a browser (or serve with any static file server)
-3. Click anywhere to enable audio
-4. Press `F` for fullscreen TV mode
+## Drift
 
-```bash
-# Or serve locally:
-python3 -m http.server 8080
-# Then open http://localhost:8080
-```
+Projektet er sat op til at kunne køre på en Debian-server med:
 
-## Keyboard Shortcuts
+- nginx
+- en lille Python-baseret API-service
+- systemd til at holde API-servicen kørende
 
-| Key | Action |
-|-----|--------|
-| `Enter` / `Space` | Next message |
-| `Arrow Left` | Previous message |
-| `Arrow Right` | Next message |
-| `F` | Toggle fullscreen |
-| `M` | Toggle mute |
-| `Escape` | Exit fullscreen |
+## Deployment-filer
 
-## How It Works
+Se mappen `server/` for de filer, der blev brugt til opsætningen.
 
-Each tile on the board is an independent element that can animate through a scramble sequence (rapid random characters with colored backgrounds) before settling on the final character. Only tiles whose content changes between messages animate — just like a real mechanical board.
-
-The sound is a single recorded audio clip of a real split-flap transition, played once per message change to perfectly sync with the visual animation.
-
-## File Structure
-
-```
-flipoff/
-  index.html           — Single-page app
-  css/
-    reset.css          — CSS reset
-    layout.css         — Page layout (header, hero, board)
-    board.css          — Board container and accent bars
-    tile.css           — Tile styling and 3D flip animation
-    responsive.css     — Media queries for all screen sizes
-  js/
-    main.js            — Entry point and UI wiring
-    Board.js           — Grid manager and transition orchestration
-    Tile.js            — Individual tile animation logic
-    SoundEngine.js     — Audio playback with Web Audio API
-    MessageRotator.js  — Quote rotation timer
-    KeyboardController.js — Keyboard shortcut handling
-    constants.js       — Configuration (grid size, colors, quotes)
-    flapAudio.js       — Embedded audio data (base64)
-```
-
-## Customization
-
-Edit `js/constants.js` to change:
-- **Messages**: Add your own quotes or text
-- **Grid size**: Adjust `GRID_COLS` and `GRID_ROWS`
-- **Timing**: Tweak `SCRAMBLE_DURATION`, `STAGGER_DELAY`, etc.
-- **Colors**: Modify `SCRAMBLE_COLORS` and `ACCENT_COLORS`
-
-## License
-
-MIT — do whatever you want with it.
